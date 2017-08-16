@@ -22,6 +22,7 @@ executable {{name}}
                      , protolude
                      , text
                      , optparse-applicative
+		     , microlens-platform
 		     
 {-# START_FILE Setup.hs #-}
 import Distribution.Simple
@@ -34,10 +35,12 @@ main = defaultMain
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Data.Semigroup ((<>))
-import Options.Applicative
 import Prelude ()
 import Protolude
+
+import Data.Semigroup ((<>))
+import Options.Applicative
+import Lens.Micro.Platform
 
 data Options = Options { message :: Text }
 
